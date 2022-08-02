@@ -1,6 +1,6 @@
 # logrem using .ps1/.sh script
 
-This project is built for preparing shell scripts for both windows and linux operating systems in order to delete log file in case if it reaches a defined threshold size limit.
+This project is built for preparing powershell/shell scripts for both Windows and Linux operating systems in order to delete log file in case if it reaches a defined threshold size limit.
 
 Please find the description below for each script
 
