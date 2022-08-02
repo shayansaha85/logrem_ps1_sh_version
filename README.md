@@ -24,5 +24,4 @@ If end user is using Linux operating system then this file is used
 
 ---
 
-<br />
 After executing the commands the utility will remove the log files if it exceeds the threshold file size limit
