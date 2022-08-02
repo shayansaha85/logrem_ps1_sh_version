@@ -1,13 +1,26 @@
-/bin/bash
 
-# path to the file
-filepath="./logrem.ps1"
+#!/bin/bash
 
-# extracting file name from full file path
-name="${filepath##*/}"
+while getopts p:m: flag;
+do
+    case $flag in
+        p) filepath=$OPTARG;;
+        m) maxSize=$OPTARG;;
+    esac
+done
 
-# extracting the size of a file
-size=$(ls -lah $filepath |cut -d ' ' -f 5)
+declare -i size=0
+size=$(stat -c%s "$filepath")
+
 
 #displaying file name and file size
-echo "FILE SIZE OF $name IS $size"
+if [ $size -gt $maxSize ]
+then
+	echo "file size exceeding maximum permissible size"
+	echo $size
+	rm -f $filepath
+	echo "file deleted successfully"
+else
+	echo "file size not exceeding maximum permissible size"
+	echo $size
+fi
